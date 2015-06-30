@@ -14,7 +14,7 @@ from enrollment.errors import (
 from enrollment.serializers import CourseEnrollmentSerializer, CourseField
 from student.models import (
     CourseEnrollment, NonExistentCourseError, EnrollmentClosedError,
-    CourseFullError, AlreadyEnrolledError
+    CourseFullError, AlreadyEnrolledError,
 )
 
 log = logging.getLogger(__name__)
@@ -103,7 +103,6 @@ def create_course_enrollment(username, course_id, mode, is_active):
     except AlreadyEnrolledError as err:
         enrollment = get_course_enrollment(username, course_id)
         raise CourseEnrollmentExistsError(err.message, enrollment)
-
 
 
 def update_course_enrollment(username, course_id, mode=None, is_active=None):

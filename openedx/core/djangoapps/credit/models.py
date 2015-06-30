@@ -404,7 +404,6 @@ class CreditRequest(TimeStampedModel):
             for request in cls.objects.select_related('course', 'provider').filter(username=username)
         ]
 
-
     class Meta(object):  # pylint: disable=missing-docstring
         # Enforce the constraint that each user can have exactly one outstanding
         # request to a given provider.  Multiple requests use the same UUID.
